@@ -3,15 +3,17 @@ import {combineReducers} from 'redux'
 const initState = {
     account: null
 }
-function userReducers(state = initState, action) {
+function userReducer(state = initState, action) {
 
     switch (action.type) {
+
         case "LOGIN":
-            return {
+            console.log("----------login----------");
+            console.log(action.payload)
+            return  {
                 ...state,
                 account: action.payload
             }
-            break
         case "LOGOUT":
             return {
                 ...state,
@@ -25,5 +27,5 @@ function userReducers(state = initState, action) {
 }
 
 export const reducersRoot = combineReducers({
-    user: userReducers
+    user: userReducer
 })
